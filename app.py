@@ -1,14 +1,31 @@
+from sentence_transformers import SentenceTransformer, util
+from PIL import Image
 import streamlit as st
 import pandas as pd
 import glob
 import os
+import pickle
 
 st.set_page_config(page_title="Light Fixture Search", layout="wide")
 st.title("Light Fixture Search App")
 
 current_directory = os.getcwd()
 data_folder = os.path.join(current_directory,"data")
+embeddings_path = os.path.join(current_directory,"embeddings/embeddings.pkl")
+
 st.markdown(f"**Data Source:** `{data_folder}`")
+
+@st.cache_resource
+def load_model():
+    return SentenceTransformer('clip-ViT-B-32')
+
+@st.cache_datad
+def load_embeddings():
+    if os.path.exists(embeddings_path):
+        with open(embeddings_path,'rb') as f:
+            return pickle.load(f)
+    return None
+
 
 @st.cache_data #keeps data in memory so it doesn't reload every time you click a filter
 def load_data(path):

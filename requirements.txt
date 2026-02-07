@@ -1,3 +1,6 @@
 pandas
 streamlit
 openpyxl
+sentence-transformers
+pickle
+pillow
