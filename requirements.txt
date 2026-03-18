@@ -2,5 +2,6 @@ pandas
 streamlit
 openpyxl
 sentence-transformers
+torch
 pickle
 pillow
