@@ -80,7 +80,7 @@ for index, row in combined_df.iterrows():
         except Exception as e:
             print(f"Error processing UPC {upc}: {e}")
 
-    processed_upcs_set(upc)
+    processed_upcs_set.add(upc)
     
     if index % 50 == 0:
         print(f'Auto-saving progress at row {index}...')
