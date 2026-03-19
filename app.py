@@ -12,7 +12,7 @@ st.title("Light Fixture Search App")
 
 current_directory = os.getcwd()
 data_folder = os.path.join(current_directory,"data")
-embeddings_path = os.path.join(current_directory,"embeddings/embeddings.pkl")
+embeddings_path = os.path.join(current_directory,"embeddings/image_embeddings.pkl")
 
 st.markdown(f"**Data Source:** `{data_folder}`")
 

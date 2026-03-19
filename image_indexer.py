@@ -18,7 +18,7 @@ if resume and os.path.exists(output_path):
         data = pickle.load(f)
         embeddings = data['vectors']
         item_upc = data['UPC']
-    print(f"Resuming with {len(set(item_upc))} images already completed.")
+    print(f"Resuming with {len(set(item_upc))} UPC already completed.")
 else:
     embeddings = []
     item_upc = []
@@ -59,7 +59,7 @@ processed_upcs_set = set(item_upc)
 print(f'Processing {len(combined_df)} rows...')
 
 for index, row in combined_df.iterrows():
-    upc = str(row['UPC']).split('.')[0].strip()
+    upc = str(row['UPC']).strip()
 
     if upc in processed_upcs_set:
         continue
